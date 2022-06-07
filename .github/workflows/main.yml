@@ -6,7 +6,7 @@ on:
    - main
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout source
         uses: actions/checkout@v2
@@ -19,7 +19,7 @@ jobs:
       - name: Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 13.x
+          node-version: 16.x
 
       - name: cordova
         run: npm install -g cordova
@@ -55,8 +55,8 @@ jobs:
           name: app-dev
           path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
 
-      - name: Upload release bundle
-        uses: actions/upload-artifact@v1
-        with:
-          name: app-release
-          path: platforms/android/app/build/outputs/bundle/release/app.aab
+#       - name: Upload release bundle
+#         uses: actions/upload-artifact@v1
+#         with:
+#           name: app-release
+#           path: platforms/android/app/build/outputs/bundle/release/app.aab
